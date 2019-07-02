@@ -27,7 +27,11 @@ export default class UserTable extends PureComponent {
     order: 'asc',
     orderBy: 'firstName',
     selected: [],
-    data: [],
+    data: [
+        createData('Cupcake', 305, 3.7, 67, 4.3,'aa'),
+        createData('Donut', 452, 25.0, 51, 4.9,'bb'),
+        createData('Eclair', 262, 16.0, 24, 6.0,'cc'),
+    ],
     page: 0,
     rowsPerPage: 5,
   };
