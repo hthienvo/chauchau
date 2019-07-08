@@ -4,24 +4,24 @@ import { Field, reduxForm } from 'redux-form';
 import AccountOutlineIcon from 'mdi-react/AccountOutlineIcon';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
 const background = `${process.env.PUBLIC_URL}/img/user/adduser.png`;
 
-const AddUser = ({ onClick }) => (
+const AddUser = ({ handleSubmit  }) => {
+return(
   <div className="user__adduser" style={{ backgroundImage: `url(${background})` }}>
     <Container>
       <Row>
 
-        <form className="form quote-form" onSubmit={onClick}>
+        <form className="form quote-form" onSubmit={handleSubmit }>
           <Col offset={6} md={6}>
             <div className="form__form-group">
-              <span className="form__form-group-label">ID</span>
+              <span className="form__form-group-label">User Name</span>
               <div className="form__form-group-field">
                 <div className="form__form-group-icon">
                   <AccountOutlineIcon />
                 </div>
                 <Field
-                  name="name"
+                  name="username"
                   component="input"
                   type="text"
                   placeholder="Value"
@@ -35,7 +35,7 @@ const AddUser = ({ onClick }) => (
                   <AccountOutlineIcon />
                 </div>
                 <Field
-                  name="name"
+                  name="firstName"
                   component="input"
                   type="text"
                   placeholder="Value"
@@ -49,7 +49,7 @@ const AddUser = ({ onClick }) => (
                   <AccountOutlineIcon />
                 </div>
                 <Field
-                  name="name"
+                  name="middleName"
                   component="input"
                   type="text"
                   placeholder="Value"
@@ -65,7 +65,7 @@ const AddUser = ({ onClick }) => (
                   <AccountOutlineIcon />
                 </div>
                 <Field
-                  name="name"
+                  name="lastName"
                   component="input"
                   type="text"
                   placeholder="Value"
@@ -82,10 +82,10 @@ const AddUser = ({ onClick }) => (
                   <AccountOutlineIcon />
                 </div>
                 <Field
-                  name="name"
+                  name="email"
                   component="input"
                   type="text"
-                  placeholder="Value"
+                  placeholder="put your email here"
                 />
               </div>
             </div>
@@ -97,7 +97,7 @@ const AddUser = ({ onClick }) => (
                   <AccountOutlineIcon />
                 </div>
                 <Field
-                  name="name"
+                  name="address"
                   component="input"
                   type="text"
                   placeholder="Value"
@@ -112,7 +112,7 @@ const AddUser = ({ onClick }) => (
                   <AccountOutlineIcon />
                 </div>
                 <Field
-                  name="name"
+                  name="role"
                   component="input"
                   type="text"
                   placeholder="Value"
@@ -127,7 +127,7 @@ const AddUser = ({ onClick }) => (
                   <AccountOutlineIcon />
                 </div>
                 <Field
-                  name="name"
+                  name="phoneNumber"
                   component="input"
                   type="text"
                   placeholder="Value"
@@ -136,16 +136,16 @@ const AddUser = ({ onClick }) => (
             </div>
           </Col>
           
-          <Link className="btn btn-primary account__btn account__btn--small" to="/pages/one">Add User</Link>
-
+          <Link type="submit" className="btn btn-primary account__btn account__btn--small" to="/pages/one">Close</Link>
+          <button type="submit" className="btn btn-primary account__btn account__btn--small" to="/pages/one">Submit</button>
         </form>
       </Row>
     </Container>
   </div>
 );
-
+};
 AddUser.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default reduxForm({
